@@ -11,11 +11,11 @@ Change this tutorial with GitBook Editor.
 
 `npm install` which will install dependencies from `package.json`
 
-then `gitbook install` which will install plugins from book.json
+then `gitbook install` which will install plugins from `book.json`
 
 then `gulp` which will create a static website under `docs`
 
-3. When you are happy with your edits create a pull request
+4. When you are happy with your edits create a pull request
 
 
 
