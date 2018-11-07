@@ -103,32 +103,22 @@
 
     
     <div class="description">
-        <h1 id="gitboook-publishable-template">gitboook-publishable-template</h1>
-<p>template to use for publishing gitbooks to github.com</p>
-<p>You can duplicate this repository 
-<a href="https://help.github.com/articles/duplicating-a-repository/" target="_blank">https://help.github.com/articles/duplicating-a-repository/</a></p>
+        <h1 id="introduction">Introduction</h1>
+<p>Change this tutorial with GitBook Editor.</p>
 <ol>
-<li>Create a new repository on github.com  </li>
-</ol>
-<ol>
-<li><p>Create a bare clone of this repository
-<code>git clone --bare https://github.com/rebeccapeltz/gitbook-publishable-template.git</code></p>
+<li><p><code>clone</code> this repository</p>
 </li>
-<li><p>Mirror-push to new repository
-<code>cd gitbook-publishable-template.git</code><br><code>git push --mirror https://github.com/useraccount/new-repository.git</code>  </p>
+<li><p>download GitBook Editor</p>
 </li>
-<li><p>Remove the temporary repository create above<br><code>cd ..</code>
-<code>rm -rf old-repository.git</code></p>
+<li><p>To debug run inside the repo:</p>
 </li>
 </ol>
-<p>Alternatively, you can also just download a zipped file of this repository and then use standard commands to push to initialize and push to your new repository.  </p>
-<pre><code class="lang-bash">git init
-git add .
-git commit -m<span class="hljs-string">&quot;first commit&quot;</span>
-git remote add origin git@github.com:useraccount/new-repository.git  
-git push origin master
-</code></pre>
-<p>Yay!</p>
+<p><code>npm install</code> which will install dependencies from <code>package.json</code></p>
+<p>then <code>gitbook install</code> which will install plugins from book.json</p>
+<p>then <code>gulp</code> which will create a static website under <code>docs</code></p>
+<ol>
+<li>When you are happy with your edits create a pull request</li>
+</ol>
 
     </div>
     
@@ -146,12 +136,24 @@ git push origin master
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        <span class="title-secondary">0 articles</span>
+                        <span class="title-secondary">2 articles</span>
                         
                     </h3>
                 </div>
                 <div class="list-group">
                 
+                    
+                
+                    
+                    <a href="pages/getting-started.html" class="list-group-item">
+                        <i class="fa fa-file-o" aria-hidden="true"></i> Getting Started
+                    </a>
+                    
+                
+                    
+                    <a href="pages/literature.html" class="list-group-item">
+                        <i class="fa fa-file-o" aria-hidden="true"></i> Literature
+                    </a>
                     
                 
                 </div>
@@ -163,7 +165,7 @@ git push origin master
     
     <div class="faq-page-footer">
         <a href="https://www.gitbook.com" target="_blank">Published with GitBook</a> ·
-        <span>Last edit October 24th 2018</span>
+        <span>Last edit November 6th 2018</span>
     </div>
     
 
@@ -214,7 +216,7 @@ git push origin master
 
 <script>
 (function() {
-    gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-faq"],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-faq":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-10-24T18:37:58.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T18:38:01.748Z"},"basePath":".","book":{"language":""}})
+    gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"pages/getting-started.md","ref":"pages/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["theme-faq"],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-faq":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-11-07T00:06:04.112Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-07T00:15:58.604Z"},"basePath":".","book":{"language":""}})
 })();
 </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
