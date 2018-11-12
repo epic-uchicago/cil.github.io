@@ -66,7 +66,7 @@ username@sacagawea:~/cil$ ls
 impact-calculations  impact-common  impactlab-tools  open-estimate  server.yml
 ```
 
-## 5. Checkout to the right branches
+## 5. Checkout to the right `git` branches
 
 Copy and paste this:
 

@@ -1,0 +1,386 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Projection system installation guide · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="literature.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="getting-started.html">
+            
+                <a href="getting-started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="literature.html">
+            
+                <a href="literature.html">
+            
+                    
+                    Literature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    Projection system installation guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Projection system installation guide</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="install-projection-system">Install projection system</h1>
+<p>This tutorial is based on <a href="https://bitbucket.org/ClimateImpactLab/impact-calculations/src/release-1.0/docs/process.md" target="_blank">these instructions</a>. Follow these steps to install CIL projection system and run your first job on Sacagawea.</p>
+<h2 id="1-access-sacagawea">1. Access sacagawea</h2>
+<pre><code>ssh -Y username@sacagawea.gspp.berkeley.edu
+Are you sure you want to continue connecting (yes/no)? yes
+username@sacagawea.gspp.berkeley.edu&apos;s password: password
+</code></pre><h2 id="2-install-python-packages">2. Install python packages:</h2>
+<p>Make sure you have python 2.7 with <code>python --version</code></p>
+<pre><code>pip install --user statsmodels
+pip install --user metacsv
+pip install --user scipy
+</code></pre><h2 id="3-clone-repositories-and-install">3. Clone repositories and install</h2>
+<p>You can just copy and paste all of these commands. Make sure you have permission to access <code>bitbucket.org/ClimateImpactLab/impact-calculations.git</code></p>
+<pre><code>mkdir cil
+cd cil
+git clone https://github.com/ClimateImpactLab/open-estimate.git
+cd open-estimate/
+python setup.py develop --user
+cd ..
+git clone https://github.com/ClimateImpactLab/impactlab-tools.git
+cd impactlab-tools/
+python setup.py develop --user
+cd ..
+git clone https://github.com/ClimateImpactLab/impact-common.git
+cd impact-common/
+python setup.py develop --user
+cd ..
+git clone https://username@bitbucket.org/ClimateImpactLab/impact-calculations.git
+</code></pre><p>Your <code>cil</code> folder should look like this:</p>
+<pre><code>username@sacagawea:~/cil$ ls
+impact-calculations  impact-common  impactlab-tools  open-estimate
+</code></pre><h2 id="4-create-new-file-in-cil-with">4. Create new file in <code>cil</code> with:</h2>
+<blockquote>
+<p>The <code>impact-calculations</code> code needs to know where to find the <code>$DATA</code> directory and is given this information by placing a file named <code>server.yml</code> in the directory that contains <code>impact-calculations</code>. </p>
+</blockquote>
+<p>Data is stored at <code>/shares/gcp/social</code>, hence we create the file with the following command:</p>
+<pre><code>username@sacagawea:~/cil$ echo /shares/gcp &gt;&gt; server.yml
+</code></pre><p>The folder <code>cil</code> should now look like this:</p>
+<pre><code>username@sacagawea:~/cil$ ls
+impact-calculations  impact-common  impactlab-tools  open-estimate  server.yml
+</code></pre><h2 id="5-checkout-to-the-right-git-branches">5. Checkout to the right <code>git</code> branches</h2>
+<p>Copy and paste this:</p>
+<pre><code>cd impact-calculations/
+git checkout release-1.0
+cd ..
+cd open-estimate/
+git checkout release-2.0
+cd ..
+</code></pre><h2 id="6-create-your-first-job">6. Create your first job</h2>
+<p>Navigate to <code>configs</code></p>
+<pre><code>cd impact-calculations/
+cd configs/
+vim mortality-test.yml
+</code></pre><p>Put the following inside <code>mortality-test.yml</code></p>
+<pre><code>module: mortality
+mode: single
+outputdir: /shares/gcp/outputs/mortality/impacts-darwin
+do_only: interpolation
+do_farmers: false # do not include all three adaptation scenarious
+do_historical: false # true means it includes contrafactual
+csvvfile: /shares/gcp/social/parameters/mortality/mortality_nonFGLS_23082018/Agespec_interaction_GMFD_POLY-4_TINV_CYA_NW_w1.csvv
+singledir: dummy-test
+specification: polynomial
+econcovar: # income
+   class: bartlett
+   length: 13 # take 13 previous years
+climcovar: # long run average temperature
+   class: bartlett
+   length: 30 # take 30 previous years
+</code></pre><p>Run the job:</p>
+<pre><code>username@sacagawea:~/cil/impact-calculations$ ./generate.sh configs/mortality-test.yml
+rcp85 CCSM4
+SSP3 high
+/shares/gcp/outputs/mortality/impacts-darwin/dummy-test/rcp85/CCSM4/high/SSP3
+interpolation
+Agespec_interaction_GMFD_POLY-4_TINV_CYA_NW_w1
+REDO: Cannot find /shares/gcp/outputs/mortality/impacts-darwin/dummy-test/rcp85/CCSM4/high/SSP3/Agespec_interaction_GMFD_POLY-4_TINV_CYA_NW_w1-young.nc4
+Smart Farmer
+Collecting baseline information...
+1981
+1982
+1983
+1984
+1985
+...
+</code></pre><p>Results are to be found at: <code>dummy-test</code></p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Error:</p>
+<pre><code>Traceback (most recent call last):
+  File &quot;/usr/lib/python2.7/runpy.py&quot;, line 174, in _run_module_as_main
+    &quot;__main__&quot;, fname, loader, pkg_name)
+  File &quot;/usr/lib/python2.7/runpy.py&quot;, line 72, in _run_code
+    exec code in run_globals
+...
+  File &quot;/usr/lib/python2.7/contextlib.py&quot;, line 17, in __enter__
+    return self.gen.next()
+  File &quot;/usr/lib/python2.7/dist-packages/matplotlib/__init__.py&quot;, line 1002, in _open_file_or_url
+    encoding = locale.getdefaultlocale()[1]
+  File &quot;/usr/lib/python2.7/locale.py&quot;, line 545, in getdefaultlocale
+    return _parse_localename(localename)
+  File &quot;/usr/lib/python2.7/locale.py&quot;, line 477, in _parse_localename
+    raise ValueError, &apos;unknown locale: %s&apos; % localename
+ValueError: unknown locale: UTF-8
+</code></pre><p>try this:</p>
+<pre><code>username@sacagawea:~/cil/impact-calculations$ locale
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+LANG=en_US.UTF-8
+LANGUAGE=
+LC_CTYPE=UTF-8
+LC_NUMERIC=&quot;en_US.UTF-8&quot;
+LC_TIME=&quot;en_US.UTF-8&quot;
+LC_COLLATE=&quot;en_US.UTF-8&quot;
+LC_MONETARY=&quot;en_US.UTF-8&quot;
+LC_MESSAGES=&quot;en_US.UTF-8&quot;
+LC_PAPER=&quot;en_US.UTF-8&quot;
+LC_NAME=&quot;en_US.UTF-8&quot;
+LC_ADDRESS=&quot;en_US.UTF-8&quot;
+LC_TELEPHONE=&quot;en_US.UTF-8&quot;
+LC_MEASUREMENT=&quot;en_US.UTF-8&quot;
+LC_IDENTIFICATION=&quot;en_US.UTF-8&quot;
+LC_ALL=
+username@sacagawea:~/cil/impact-calculations$ export LC_ALL=en_US.UTF-8
+username@sacagawea:~/cil/impact-calculations$ export LANG=en_US.UTF-8
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="literature.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Literature">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Projection system installation guide","level":"1.4","depth":1,"previous":{"title":"Literature","level":"1.3","depth":1,"path":"pages/literature.md","ref":"pages/literature.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pages/install.md","mtime":"2018-11-12T23:33:16.039Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-12T23:33:22.077Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
