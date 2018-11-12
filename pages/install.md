@@ -1,6 +1,6 @@
 # Install projection system
 
-This tutorial is based on (these instructions)[https://bitbucket.org/ClimateImpactLab/impact-calculations/src/release-1.0/docs/process.md]. Follow these steps to install CIL projection system and run your first job on Sacagawea.
+This tutorial is based on [these instructions](https://bitbucket.org/ClimateImpactLab/impact-calculations/src/release-1.0/docs/process.md). Follow these steps to install CIL projection system and run your first job on Sacagawea.
 
 ## 1. Access sacagawea
 
